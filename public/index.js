@@ -3,6 +3,7 @@ let myChart;
 
 fetch("/api/transaction")
   .then(response => {
+    console.log("fetched")
     return response.json();
   })
   .then(data => {
@@ -19,7 +20,7 @@ function populateTotal() {
   let total = transactions.reduce((total, t) => {
     return total + parseInt(t.value);
   }, 0);
-
+  console.log("populatedTotal", total)
   let totalEl = document.querySelector("#total");
   totalEl.textContent = total;
 }
